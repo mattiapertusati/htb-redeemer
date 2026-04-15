@@ -28,6 +28,8 @@ Results:
 PORT     STATE SERVICE VERSION
 6379/tcp open  redis   Redis key-value store 5.0.7
 
+![Nmap Scan](screenshots/01-nmap-scan.png)
+
 Nmap reveals that port **6379** is open. This is the default port for **Redis**. The `-p-` flag is essential here to ensure all ports are scanned, as Redis might not be found within the default top 1000 ports.
 
 ---
@@ -48,6 +50,8 @@ Once connected, we use the `info` command to check the server status and look fo
 # Keyspace
 db0:keys=11,expires=0,avg_ttl=0
 ```
+
+![Redis Enumeration](screenshots/02-redis-info.png)
 
 The output confirms that **database 0 (db0)** is active and contains several entries.
 
@@ -80,6 +84,8 @@ Using the `get` command on the `flag` key reveals the cleartext flag string.
 # Flag retrieved directly from Redis db0
 5b436034171f5a930843199901705332
 ```
+
+![Post Exploitation](screenshots/03-flag.png)
 
 ---
 
